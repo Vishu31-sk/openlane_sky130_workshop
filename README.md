@@ -171,8 +171,7 @@ The flow converts a Verilog RTL design into a final physical layout that can be 
 
 ## Open-Source EDA Tools Used in the Flow
 
-The OpenLANE ecosystem uses several important open-source tools:
-
+The OpenLANE ecosystem use several important open-source tools:
 - **Yosys** → RTL synthesis
 - **OpenROAD** → Physical design automation
 - **Magic** → Layout visualization and DRC
@@ -196,3 +195,9 @@ Benefits include:
 - Community-driven development
 
 The combination of OpenLANE, RISC-V, and Sky130 represents a major advancement toward accessible and collaborative silicon development.
+#Lab For picorv32a
+```bash
+cd /Desktop/work/tools/openlane_working_dir/openLane
+./flow.tcl -interactive
+package require openlane 9.0
+```
