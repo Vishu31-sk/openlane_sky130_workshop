@@ -201,7 +201,7 @@ cd /Desktop/work/tools/openlane_working_dir/openLane
 ./flow.tcl -interactive
 package require openlane 9.0
 ```
-![OpenLANE Start](images/openlane-start.png)
+![OpenLANE Start](images/openalne-start.png)
 # Day 2 — Good Floorplan vs Bad Floorplan and Introduction to Library Cells
 
 # Module 1 — Chip Floor Planning Considerations
