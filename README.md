@@ -261,7 +261,7 @@ Pins are placed around the boundary of the chip for external communication. Prop
 
 Placement blockages are restricted regions where cells cannot be placed. These blockages help reserve routing space and reduce congestion.
 core utilization defined in config.tcl file
-![core_utilization](images/core_utilization_check.png)
+![core_utilization](images/core_utilzation_check.png)
 core utilization defined in sky130....tcl file(which has highest priority)
 ![core_utilization in sky130..](images/core_utilization_sky130.png)
 Die-area (0 0) ( 660685 671405) 
