@@ -202,3 +202,58 @@ cd /Desktop/work/tools/openlane_working_dir/openLane
 package require openlane 9.0
 ```
 ![OpenLANE Start](images/openlane-start.png)
+# Day 2 — Good Floorplan vs Bad Floorplan and Introduction to Library Cells
+
+# Module 1 — Chip Floor Planning Considerations
+
+## Introduction to Floorplanning
+
+Floorplanning is an important stage in ASIC physical design where the overall structure of the chip is defined before placement and routing. It determines the core area, pin locations, macro positions, and power distribution of the chip. A good floorplan improves routing efficiency, timing performance, and power integrity, while a poor floorplan can create congestion and timing issues.
+
+---
+
+## Utilization Factor and Aspect Ratio
+
+The utilization factor defines how much of the core area is occupied by standard cells.
+
+:contentReference[oaicite:0]{index=0}
+
+Very high utilization can cause routing congestion, while very low utilization wastes chip area.
+
+The aspect ratio defines the ratio between the height and width of the core.
+
+:contentReference[oaicite:1]{index=1}
+
+A balanced aspect ratio helps achieve better routing and timing performance.
+
+---
+
+## Concept of Pre-Placed Cells
+
+Large blocks such as SRAMs, PLLs, and analog IPs are called pre-placed cells or macros. These blocks are fixed before standard cell placement begins. Proper macro placement is important because it directly affects routing congestion and timing.
+
+---
+
+## De-Coupling Capacitors
+
+De-coupling capacitors are used to reduce voltage fluctuations caused by switching activity inside the chip. They help maintain stable power supply levels and improve chip reliability.
+
+Benefits include:
+
+- Reduced power noise
+- Improved voltage stability
+- Better signal integrity
+
+---
+
+## Power Planning
+
+Power planning creates the power distribution network of the chip using power rails, rings, and straps. A good power plan reduces IR drop and ensures stable power delivery across the chip.
+
+---
+
+## Pin Placement and Placement Blockage
+
+Pins are placed around the boundary of the chip for external communication. Proper pin placement reduces wirelength and routing complexity.
+
+Placement blockages are restricted regions where cells cannot be placed. These blockages help reserve routing space and reduce congestion.
