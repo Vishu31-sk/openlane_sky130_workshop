@@ -195,13 +195,16 @@ Benefits include:
 - Community-driven development
 
 The combination of OpenLANE, RISC-V, and Sky130 represents a major advancement toward accessible and collaborative silicon development.
-#Lab For picorv32a
+Lab For picorv32a
 ```bash
 cd /Desktop/work/tools/openlane_working_dir/openLane
 ./flow.tcl -interactive
 package require openlane 9.0
 ```
 ![OpenLANE Start](images/openalne-start.png)
+Flop Ratio = total numbers of d flip-flop/total number of cells
+Flop Ratio for picorv32a is 1613/14876=0.108... = 10.8%
+![Flop Ratio](images/flopratio.png)
 # Day 2 — Good Floorplan vs Bad Floorplan and Introduction to Library Cells
 
 # Module 1 — Chip Floor Planning Considerations
@@ -257,3 +260,14 @@ Power planning creates the power distribution network of the chip using power ra
 Pins are placed around the boundary of the chip for external communication. Proper pin placement reduces wirelength and routing complexity.
 
 Placement blockages are restricted regions where cells cannot be placed. These blockages help reserve routing space and reduce congestion.
+core utilization defined in config.tcl file
+![core_utilization](images/core_utilization_check.png)
+core utilization defined in sky130....tcl file(which has highest priority)
+![core_utilization in sky130..](images/core_utilization_sky130.png)
+Die-area (0 0) ( 660685 671405) 
+Width  = 660685 / 1000 = 660.685 µm
+Height = 671405 / 1000 = 671.405 µm
+Area = 660.685 × 671.405
+     = 443540.788425 µm²
+Die Area = 0.4435 mm²
+![Die - Area](images/diearea.png)
