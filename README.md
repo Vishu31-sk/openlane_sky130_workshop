@@ -264,10 +264,12 @@ core utilization defined in config.tcl file
 ![core_utilization](images/core_utilzation_check.png)
 core utilization defined in sky130....tcl file(which has highest priority)
 ![core_utilization in sky130..](images/core_utilization_sky130.png)
+
 Die-area (0 0) ( 660685 671405) 
 Width  = 660685 / 1000 = 660.685 µm
 Height = 671405 / 1000 = 671.405 µm
 Area = 660.685 × 671.405
      = 443540.788425 µm²
 Die Area = 0.4435 mm²
+
 ![Die - Area](images/diearea.png)
