@@ -273,3 +273,514 @@ Area = 660.685 × 671.405
 Die Area = 0.4435 mm²
 
 ![Die - Area](images/diearea.png)
+# Module 2 — Library Binding and Placement Optimization
+
+## Introduction to Library Binding
+
+After floorplanning, the synthesized netlist must be connected with the standard cell libraries available in the technology. This process is called **library binding**. During this stage, logical cells from synthesis are mapped to physical cells that exist inside the Sky130 standard cell library.
+
+Library binding ensures:
+
+- Correct physical implementation
+- Timing-aware optimization
+- Power optimization
+- Area-efficient placement
+
+---
+
+## Netlist Binding and Initial Placement
+
+The synthesized netlist is converted into a physical representation by assigning actual standard cells to each logical function. Initial placement arranges cells inside the core while maintaining connectivity and reducing wirelength.
+
+The objectives are:
+
+- Minimize cell overlap
+- Reduce total wirelength
+- Improve timing performance
+
+---
+
+## Placement Optimization
+
+Placement optimization improves the initial placement by moving cells to achieve better timing and lower congestion.
+
+Optimization focuses on:
+
+- Reducing setup violations
+- Improving signal delay
+- Lowering power consumption
+- Minimizing routing difficulty
+
+Multiple optimization iterations may be performed before final placement.
+
+---
+
+## Need for Libraries
+
+Standard cell libraries are collections of pre-designed and pre-characterized digital cells.
+
+Examples include:
+
+- NAND gates
+- NOR gates
+- Buffers
+- Inverters
+- Flip-flops
+
+Libraries contain:
+
+- Functional information
+- Timing data
+- Power characteristics
+- Physical dimensions
+
+These libraries allow faster and more reliable chip implementation.
+
+---
+
+## Congestion Aware Placement
+
+Congestion occurs when routing demand exceeds available routing resources.
+
+Congestion-aware placement attempts to:
+
+- Spread cells evenly
+- Reduce routing blockage
+- Maintain timing performance
+- Improve routing success
+
+Proper congestion control results in cleaner and more efficient layouts.
+
+---
+
+# Module 3 — Cell Design and Characterization Flow
+
+## Introduction to Cell Design
+
+Cell design focuses on creating individual standard cells used throughout the ASIC.
+
+Each standard cell must satisfy:
+
+- Functional correctness
+- Area requirements
+- Timing constraints
+- Power targets
+
+Cell design directly influences final chip performance.
+
+---
+
+## Inputs for Cell Design Flow
+
+Cell development begins with several required inputs:
+
+- Technology files
+- Design rules
+- Electrical constraints
+- Library specifications
+
+These inputs define how the physical cell should be implemented.
+
+---
+
+## Circuit Design Step
+
+In this stage, transistor-level circuits are designed to implement required logic behavior.
+
+The circuit design process includes:
+
+- Transistor sizing
+- Power analysis
+- Delay optimization
+- Functional verification
+
+Simulation tools verify the operation before layout generation.
+
+---
+
+## Layout Design Step
+
+Layout design converts transistor schematics into physical geometry.
+
+Layout generation includes:
+
+- Transistor placement
+- Metal routing
+- Layer creation
+- DRC compliance
+
+The generated layout must satisfy manufacturing rules.
+
+---
+
+## Typical Characterization Flow
+
+After layout completion, characterization is performed.
+
+Characterization extracts:
+
+- Propagation delay
+- Setup time
+- Hold time
+- Power consumption
+
+The generated data becomes part of the standard cell library used during synthesis and implementation.
+
+---
+
+# Module 4 — General Timing Characterization Parameters
+
+## Introduction to Timing Parameters
+
+Timing characterization determines how quickly signals move through digital circuits and whether data remains stable.
+
+Timing analysis is essential for reliable ASIC operation.
+
+---
+
+## Timing Threshold Definitions
+
+Timing thresholds define the reference points used to measure signal transitions.
+
+Important timing thresholds include:
+
+- Rise threshold
+- Fall threshold
+- Input threshold
+- Output threshold
+
+These thresholds are used to calculate accurate delays.
+
+---
+
+## Propagation Delay
+
+Propagation delay is the time required for a signal to travel from input to output.
+
+It is represented as:
+
+:contentReference[oaicite:0]{index=0}
+
+Lower propagation delay improves circuit speed.
+
+---
+
+## Setup Time and Hold Time
+
+Setup time is the minimum duration data must remain stable before the clock edge.
+
+Hold time is the minimum duration data must remain stable after the clock edge.
+
+These parameters are critical for avoiding timing violations.
+
+---
+
+## Rise Time and Fall Time
+
+Rise time measures the transition from logic 0 to logic 1.
+
+Fall time measures the transition from logic 1 to logic 0.
+
+These values affect:
+
+- Switching speed
+- Power consumption
+- Signal quality
+
+Accurate timing characterization ensures reliable standard cell operation during ASIC implementation.
+# Day 3 — Design Library Cell using Magic Layout and ngspice Characterization
+
+# Module 1 — Labs for CMOS Inverter using ngspice
+
+## Introduction
+
+This module introduces the practical implementation and simulation of a CMOS inverter using ngspice. The objective is to understand transistor-level behavior, SPICE simulation flow, switching characteristics, and performance analysis of CMOS circuits.
+
+---
+
+## SPICE Deck Creation
+
+A SPICE deck contains circuit description, device models, simulation commands, and analysis setup. It is used to simulate transistor operation and verify circuit behavior before layout implementation.
+
+---
+
+## CMOS Inverter Simulation
+
+The CMOS inverter is simulated to observe input-output characteristics and switching operation. Simulation helps evaluate functionality, output transitions, and voltage behavior.
+
+---
+
+## Switching Threshold (Vm)
+
+Switching threshold voltage is the point where input voltage becomes equal to output voltage during transition.
+
+It determines:
+
+- Noise margin
+- Switching speed
+- Stable logic operation
+
+---
+
+## Static and Dynamic Simulation
+
+Static simulation observes DC characteristics while dynamic simulation evaluates transient behavior and switching response over time.
+
+---
+
+# Module 2 — Inception of Layout and CMOS Fabrication Process
+
+## Introduction
+
+This module explains how transistor circuits are physically implemented on silicon using fabrication and layout techniques.
+
+---
+
+## Active Region Formation
+
+Active regions define locations where transistors are created and electrical conduction occurs.
+
+---
+
+## N-Well and P-Well Formation
+
+Wells are created to support PMOS and NMOS transistor construction inside the silicon substrate.
+
+---
+
+## Gate Formation
+
+The gate terminal controls transistor switching and determines device operation.
+
+---
+
+## Source and Drain Formation
+
+Source and drain regions are formed through doping processes to enable current flow.
+
+---
+
+## Local Interconnect and Metal Layers
+
+Metal layers provide electrical connectivity between devices and allow implementation of complete circuits.
+
+---
+
+## Standard Cell Creation
+
+All layout structures are combined to create reusable standard cells for digital design.
+
+---
+
+# Module 3 — Sky130 Tech File and Characterization
+
+## Introduction
+
+Technology files define manufacturing rules and physical information required for layout and verification.
+
+---
+
+## Final Standard Cell Creation
+
+The completed layout is verified and prepared for characterization.
+
+---
+
+## Cell Characterization
+
+Characterization extracts:
+
+- Delay information
+- Power consumption
+- Timing parameters
+- Switching behavior
+
+---
+
+## Introduction to Magic and Sky130
+
+Magic is used for layout visualization and verification, while Sky130 provides the fabrication technology information required for implementation.
+# Day 4 — Pre-layout Timing Analysis and Clock Tree Synthesis
+
+# Module 1 — Timing Modelling using Delay Tables
+
+## Introduction
+
+Timing modelling predicts circuit behavior before physical implementation and helps estimate performance.
+
+---
+
+## Timing Parameters
+
+Important timing parameters include:
+
+- Delay
+- Slew
+- Rise time
+- Fall time
+
+---
+
+## Delay Tables
+
+Delay tables store timing information for different loading and transition conditions.
+
+---
+
+## Timing Configuration
+
+Timing configuration ensures accurate analysis and optimization during implementation.
+
+---
+
+# Module 2 — Timing Analysis and Clock Introduction
+
+## Introduction
+
+Timing analysis verifies whether signals arrive within required timing constraints.
+
+---
+
+## Setup Timing Analysis
+
+Setup analysis ensures data arrives before the active clock edge.
+
+---
+
+## Clock Jitter
+
+Clock jitter represents unwanted clock variation that may affect timing performance.
+
+---
+
+## Timing Optimization
+
+Timing optimization reduces violations and improves performance.
+
+---
+
+# Module 3 — Clock Tree Synthesis (CTS)
+
+## Introduction
+
+Clock Tree Synthesis distributes clock signals across the chip while minimizing skew and delay.
+
+---
+
+## Clock Routing
+
+Clock routing creates balanced paths between clock source and sequential elements.
+
+---
+
+## Crosstalk and Clock Network
+
+Crosstalk affects signal integrity and must be controlled for reliable operation.
+
+---
+
+## CTS Verification
+
+Clock tree results are verified to ensure timing and clock quality.
+
+---
+
+# Module 4 — Timing Analysis after CTS
+
+## Introduction
+
+Post-CTS timing analysis validates timing performance after clock implementation.
+
+---
+
+## Setup Analysis
+
+Checks whether setup constraints are satisfied.
+
+---
+
+## Hold Analysis
+
+Ensures data remains stable after clock transition.
+
+---
+
+## Timing Closure
+
+Timing closure removes all timing violations before routing.
+# Day 5 — Final Steps for RTL2GDS Flow
+
+# Module 1 — Routing and Design Rule Check
+
+## Introduction
+
+Routing creates physical wire connections between placed cells and completes circuit implementation.
+
+---
+
+## Maze Routing
+
+Maze routing determines valid paths while avoiding obstacles.
+
+---
+
+## Lee's Algorithm
+
+Lee's algorithm is used to find shortest routing paths systematically.
+
+---
+
+## Design Rule Check (DRC)
+
+DRC verifies that layout follows fabrication design rules.
+
+---
+
+# Module 2 — Power Distribution and Routing
+
+## Introduction
+
+Power distribution ensures stable voltage delivery across the chip.
+
+---
+
+## Power Planning
+
+Power rails and power networks are generated for reliable operation.
+
+---
+
+## Global and Detailed Routing
+
+Global routing plans paths, while detailed routing creates exact physical connections.
+
+---
+
+# Module 3 — TritonRoute Features
+
+## Introduction
+
+TritonRoute performs detailed routing inside OpenLANE.
+
+---
+
+## Routing Features
+
+TritonRoute supports:
+
+- Detailed routing
+- DRC fixing
+- Routing optimization
+- Layer management
+
+---
+
+## Routing Methodology
+
+Routing algorithms generate efficient interconnections while minimizing congestion.
+
+---
+
+## Final Verification
+
+After routing completion, final verification ensures the layout is ready for GDS generation and fabrication.
